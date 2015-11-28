@@ -1,3 +1,6 @@
+# Impossible Snake Game 
+# Made By JBalisticMC
+
 import pygame
 import time
 import random
