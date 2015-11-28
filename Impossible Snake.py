@@ -1,6 +1,8 @@
 # Impossible Snake Game 
 # Made By JBalisticMC
 
+# imports
+
 import pygame
 import time
 import random
@@ -9,12 +11,16 @@ pygame.init()
 
 pygame.mixer.music.load("music_for_pops.wav")
 
+# adding colours to the game's memory
+
 white = (255,255,255)
 red = (255,0,0)
 green = (0,155,0)
 purple = (215,19,196)
 black = (0,0,0)
 light_blue = (62,221,230)
+
+## width and heith of the pygame window (Imposible snake window)
 
 display_width = 700
 display_height = 500
@@ -40,6 +46,8 @@ block_size = 20
 FPS = 15
 
 direction = "right" 
+
+# font for the messages to screen
 
 smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
@@ -84,12 +92,14 @@ def pause():
         pygame.display.update()
         clock.tick(5)
 
+# Score mec
 		
 def score(score):
     text = smallfont.render("Score: "+str(score), True, red)
     gameDisplay.blit(text, [0,0])
-
-
+	
+# Random apple mec
+	
 def randAppleGen():
     randAppleX = round(random.randrange(0, display_width-AppleThinkness))#/10.0)*10.0
     randAppleY = round(random.randrange(0, display_height-AppleThinkness))#/10.0)*10.0
@@ -97,7 +107,7 @@ def randAppleGen():
 
     return randAppleX,randAppleY
 
-
+# start of the game
 
 
 def game_intro():
@@ -145,7 +155,7 @@ def game_intro():
         pygame.display.update()
         clock.tick(15)
              
-        
+## The snake mec (object)        
 
 
 def snake(block_size, snakelist):
@@ -179,6 +189,7 @@ def text_objects(text,color,size):
         
     return textSurface, textSurface.get_rect()
 
+# Messages to the screen mec
 
 def message_to_screen(msg,color, y_displace=0, size = "small"):
     textSurf, textRect = text_objects(msg, color, size)
@@ -187,11 +198,13 @@ def message_to_screen(msg,color, y_displace=0, size = "small"):
     textRect.center = (display_width / 2),(display_height / 2)+y_displace
     gameDisplay.blit(textSurf, textRect)
     
-
+# Loop of the game 
+	
 def gameLoop():
     global direction
     pygame.mixer.music.play(-1)
 
+# Dirention of the snake's head
     
     direction = 'right'
     gameExit = False
@@ -208,7 +221,7 @@ def gameLoop():
 
     randAppleX,randAppleY = randAppleGen()
 
-   
+# Game over screen   
 
     while not gameExit:
 
