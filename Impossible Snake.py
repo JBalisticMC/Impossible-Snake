@@ -45,6 +45,8 @@ smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 80)
 
+# Pause mec
+
 def pause():
 
     pygame.mixer.music.pause()
@@ -76,12 +78,13 @@ def pause():
 
 
         message_to_screen("Press R to continue or Q to quit.",
-                         red,
+                         light_blue,
                          25)
 
         pygame.display.update()
         clock.tick(5)
 
+		
 def score(score):
     text = smallfont.render("Score: "+str(score), True, red)
     gameDisplay.blit(text, [0,0])
