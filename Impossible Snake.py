@@ -13,6 +13,8 @@ pygame.mixer.music.load("music_for_pops.wav")
 
 # adding colours to the game's memory
 
+orange = (255,128,0)
+light_yellow = (248,239,75)
 white = (255,255,255)
 red = (255,0,0)
 green = (0,155,0)
@@ -26,9 +28,9 @@ display_width = 700
 display_height = 500
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Impossible Snake (Alpha)')
+pygame.display.set_caption('Impossible Snake - Made by JBalisticMC (Quert)')
 
-icon = pygame.image.load('snake_head.png')
+icon = pygame.image.load('QuXD.png')
 pygame.display.set_icon(icon)
 
 bg = pygame.image.load("bg.jpg")
@@ -95,7 +97,7 @@ def pause():
 # Score mec
 		
 def score(score):
-    text = smallfont.render("Score: "+str(score), True, red)
+    text = smallfont.render("Score: "+str(score), True, light_blue)
     gameDisplay.blit(text, [0,0])
 	
 # Random apple mec
@@ -131,25 +133,25 @@ def game_intro():
                     pygame.quit()
                     quit()
 
-        gameDisplay.fill(white)
+        gameDisplay.fill(light_yellow)
         message_to_screen("Welcome to Impossible Snake",
                           light_blue,
                           -100,
                           size="medium")
         message_to_screen("The objective of the game is to eat red apples",
-                          red,
+                          white,
                           -30)
 
         message_to_screen("The more apples you eat, the longer you get!",
-                          red,
+                          white,
                           10)
 
         message_to_screen("If you run into your self, or the edges, YOU DIE!!",
-                          red,
+                          white,
                           50)
 
         message_to_screen("Press R to play or Q to quit.",
-                          green,
+                          light_blue,
                           180)
 
         pygame.display.update()
@@ -226,7 +228,7 @@ def gameLoop():
     while not gameExit:
 
         while gameOver == True:
-            gameDisplay.fill(white)
+            gameDisplay.fill(light_yellow)
             pygame.mixer.music.stop()
             message_to_screen("Game over!",
                               red,
@@ -234,7 +236,7 @@ def gameLoop():
                               size="large")
             
             message_to_screen("Press R to play again or Q to quit",
-                              green,
+                              light_blue,
                               50,
                               size="small")
             pygame.display.update()
@@ -310,7 +312,7 @@ def gameLoop():
         lead_y += lead_y_change
         
 
-        gameDisplay.fill(white)
+        gameDisplay.fill(light_yellow)
 
         
         #pygame.draw.rect(gameDisplay, red,[randAppleX, randAppleY, AppleThinkness, AppleThinkness])
@@ -340,6 +342,8 @@ def gameLoop():
         
         pygame.display.update()
 
+		# backup code for random apple mec
+		
 ##        if lead_x >= randAppleX and lead_x <= randAppleX + AppleThinkness:
 ##            if lead_y >= randAppleY and lead_y <= randAppleY + AppleThinkness:
 ##                randAppleX = round(random.randrange(0, display_width-block_size))#/10.0)*10.0
@@ -352,6 +356,9 @@ def gameLoop():
 ##                randAppleX = round(random.randrange(0, display_width-block_size))#/10.0)*10.0
 ##                randAppleY = round(random.randrange(0, display_height-block_size))#/10.0)*10.0
 ##                snakeLength += 3
+
+		## random apple mec - tetermining what size the apple should be according
+			##to randAppleX, randAppleY basicaly it generaerandAppleGen randAppleGen.
 
         if lead_x > randAppleX and lead_x < randAppleX + AppleThinkness or lead_x + block_size > randAppleX and lead_x + block_size < randAppleX + AppleThinkness:
 
