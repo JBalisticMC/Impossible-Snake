@@ -24,7 +24,7 @@ light_blue = (62,221,230)
 
 ## width and heith of the pygame window (Imposible snake window)
 
-display_width = 700
+display_width = 1000
 display_height = 500
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
