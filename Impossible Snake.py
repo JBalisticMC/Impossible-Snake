@@ -97,8 +97,8 @@ def pause():
 # Score mec
 		
 def score(score):
-    text = smallfont.render("Score: "+str(score), True, light_blue)
-    gameDisplay.blit(text, [0,0])
+    text = medfont.render("Score: "+str(score), True, light_blue)
+    gameDisplay.blit(text, [5,0])
 	
 # Random apple mec
 	
