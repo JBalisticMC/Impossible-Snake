@@ -11,7 +11,7 @@ Have fun playing my game!
 Credits:
 Jake Malley
 
-Gabrial Barns
+Gabriel Barnes
 
 sentex
 
