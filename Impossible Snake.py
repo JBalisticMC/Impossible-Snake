@@ -80,14 +80,21 @@ def pause():
                elif event.key == pygame.K_q:
                    pygame.quit()
                    quit()
+
                    
+            if event.type == pygame.KEYDOWN:
+               if event.key == pygame.K_f:
+                   #game_intro = True
+                   game_intro()
+                   
+
         message_to_screen("Paused",
                           red,
                           -100,
                           size="large")
 
 
-        message_to_screen("Press R to continue or Q to quit.",
+        message_to_screen("Press R to continue, F to go back to the menu and Q to quit.",
                          light_blue,
                          25)
 
@@ -235,7 +242,7 @@ def gameLoop():
                               y_displace=-50,
                               size="large")
             
-            message_to_screen("Press R to play again or Q to quit",
+            message_to_screen(" Your score was: "+str(score),
                               light_blue,
                               50,
                               size="small")
