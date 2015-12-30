@@ -14,13 +14,22 @@ pygame.mixer.music.load("music_for_pops.wav")
 # adding colours to the game's memory
 
 orange = (255,128,0)
+
 light_yellow = (248,239,75)
+
 white = (255,255,255)
+
 red = (255,0,0)
+
 green = (0,155,0)
+
 purple = (215,19,196)
+
 black = (0,0,0)
+
 light_blue = (62,221,230)
+
+light_green = (103,234,100)
 
 ## width and heith of the pygame window (Imposible snake window)
 
@@ -28,7 +37,7 @@ display_width = 1000
 display_height = 500
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Impossible Snake - Made by JBalisticMC (Quert)')
+pygame.display.set_caption('Impossible Snake (Beta)')
 
 icon = pygame.image.load('QuXD.png')
 pygame.display.set_icon(icon)
@@ -43,9 +52,9 @@ appleimg = pygame.image.load('apple.png')
 
 clock = pygame.time.Clock()
 
-AppleThinkness = 30
+AppleThinkness = 50
 block_size = 20
-FPS = 15
+FPS = 30
 
 direction = "right" 
 
@@ -94,12 +103,12 @@ def pause():
                           size="large")
 
 
-        message_to_screen("Press R to continue, F to go back to the menu and Q to quit.",
+        message_to_screen("Press R to continue or Q to quit.",
                          light_blue,
                          25)
 
         pygame.display.update()
-        clock.tick(5)
+        clock.tick(500)
 
 # Score mec
 		
@@ -110,6 +119,9 @@ def score(score):
 # Random apple mec
 	
 def randAppleGen():
+    randAppleX = round(random.randrange(0, display_width-AppleThinkness))#/10.0)*10.0
+    randAppleY = round(random.randrange(0, display_height-AppleThinkness))#/10.0)*10.0
+
     randAppleX = round(random.randrange(0, display_width-AppleThinkness))#/10.0)*10.0
     randAppleY = round(random.randrange(0, display_height-AppleThinkness))#/10.0)*10.0
 
@@ -142,23 +154,24 @@ def game_intro():
 
         gameDisplay.fill(light_yellow)
         message_to_screen("Welcome to Impossible Snake",
-                          light_blue,
+                          red,
                           -100,
                           size="medium")
-        message_to_screen("The objective of the game is to eat red apples",
-                          white,
-                          -30)
+        message_to_screen("The objective of the game is to eat bright red juicy, apples!",
+                          light_blue,
+                          -30,
+                          size="small")
 
         message_to_screen("The more apples you eat, the longer you get!",
-                          white,
+                          light_blue,
                           10)
 
-        message_to_screen("If you run into your self, or the edges, YOU DIE!!",
-                          white,
+        message_to_screen("If you run into your self, or the edges of the window, YOU DIE!!",
+                          light_blue,
                           50)
 
         message_to_screen("Press R to play or Q to quit.",
-                          light_blue,
+                          red,
                           180)
 
         pygame.display.update()
@@ -212,6 +225,8 @@ def message_to_screen(msg,color, y_displace=0, size = "small"):
 def gameLoop():
     global direction
     pygame.mixer.music.play(-1)
+    snakeLength =+ 1
+
 
 # Dirention of the snake's head
     
@@ -242,7 +257,7 @@ def gameLoop():
                               y_displace=-50,
                               size="large")
             
-            message_to_screen(" Your score was: "+str(score),
+            message_to_screen("Press Q to quit or R to play again!",
                               light_blue,
                               50,
                               size="small")
