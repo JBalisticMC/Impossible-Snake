@@ -113,7 +113,7 @@ def pause():
 # Score mec
 		
 def score(score):
-    text = medfont.render("Score: "+str(score), True, light_blue)
+    text = medfont.render("Your Score Is: "+str(score), True, light_blue)
     gameDisplay.blit(text, [5,0])
 	
 # Random apple mec
@@ -169,10 +169,18 @@ def game_intro():
         message_to_screen("If you run into your self, or the edges of the window, YOU DIE!!",
                           light_blue,
                           50)
+        
+        message_to_screen("Each time you eat a Apple, there will be 4 points added on to your score!",
+                          light_blue,
+                          100)
+        
+        message_to_screen("Good Luck!",
+                          black,
+                          150)
 
         message_to_screen("Press R to play or Q to quit.",
                           red,
-                          180)
+                          190)
 
         pygame.display.update()
         clock.tick(15)
